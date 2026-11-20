@@ -8,7 +8,7 @@
 
 **[Create a make.fun account](https://make.fun/r/e8v4jyxk)** · [Browse the bounty board](https://make.fun/)
 
-The sign-up link is a referral (`e8v4jyxk`). If make.fun verifies an eligible referral, the author may receive a share of that entrant's prize for a limited time; make.fun pays it on top, not out of your winnings. No referral reward is guaranteed. The board link is not a referral.
+The sign-up link is a referral (`e8v4jyxk`). If make.fun verifies an eligible referral and that entrant later wins, the author may receive 10% of the entrant's winnings for 90 days after sign-up. make.fun pays this on top, not out of your prize; referrals and rewards are subject to review and are not guaranteed. The board link is not a referral.
 
 ## 1. Pick a bounty you can finish
 
