@@ -39,6 +39,10 @@ Keep the signing keypair local and private. Don't paste it into a chat or put it
 
 If the rules require a new repository or fresh agent session, start both after the bounty opens. Keep the kit and credentials outside the entry repository. Add the required license and create the minimum viable version before polishing it.
 
+**Check recording before your first edit.** For a bounty that requires transcripts, confirm that your agent saves session logs the kit can read. Check that you can also supply the original system prompt and instruction files required by that bounty. A finished README alone does not establish who built it. If the original prompt is unavailable, tell your agent to stop and explain the missing evidence before building further.
+
+Keep every session that contributes to the entry, including earlier sessions when you switch models or continue in a new conversation. Preserve the original logs. A new session adds evidence for new work; it does not replace the record of the work already done. If another session started the run, keep the parent chats needed to trace it back to your original request too.
+
 Give your agent a specific brief, then review a real draft and ask for changes where needed. Here's a starting prompt to adapt:
 
 ```text
@@ -51,15 +55,22 @@ Run the bounty's local grader if the kit includes one. For a content entry, test
 
 ## 4. Check and submit one exact commit
 
-Push the deliverables and note the full commit SHA with `git rev-parse HEAD`. From the kit folder, preview the bundle so you can see which sessions and context files it would collect. Adjust the repo path to your layout and review what will be shared before uploading.
+Once you have reviewed the deliverables, commit and push them, then note the full commit SHA with `git rev-parse HEAD`. From the kit folder, preview which sessions and context files the bundle would collect. Replace `../my-entry` with your repository's path:
 
 ```sh
 node cli/makefun.mjs bundle --dry-run --repo ../my-entry
+```
+
+Review the preview before creating an archive. The kit may require additional flags for the original system prompt, harness version, provider, model, effort, instructions, or MCP servers. Supply the real recorded facts the CLI requests. The following commands show the basic sequence; add the context flags required for your run:
+
+```sh
 node cli/makefun.mjs bundle --repo ../my-entry --out transcripts.tar.gz
 node cli/makefun.mjs check --kit . --repo ../my-entry --transcripts transcripts.tar.gz
 ```
 
-If the CLI flags missing session metadata or context, supply the actual recorded data as directed. Don't invent token usage or reconstruct a log. The site may rank a handed-over session without awarding it a paid place; check your bounty's policy. Keep locally generated bundles outside the public repo. If the bundle has no build session, stop and solve the recording issue before you submit; the reviewer needs evidence from the work, not just a finished file.
+Keep the archive outside the public repository. Never invent token usage, reconstruct missing logs, or substitute another agent's system prompt. Include all contributing sessions rather than choosing only the ones that pass. The site may rank a handed-over session without awarding it a paid place; check your bounty's policy.
+
+**If a required check fails, stop before submitting.** Read its reason and fix, resolve the cause, and check the intended commit and complete transcripts again. A missing original system prompt is an evidence problem; rewriting the guide or starting another session does not recover it. A successful local check also leaves some facts for the server to verify, including repository ownership and whether the submitted snapshot duplicates another entry.
 
 Use the bounty's **Enter** form or `node cli/makefun.mjs submit --help` for submission and signing options. Then look for a receipt and a passing entry status; uploading is not the same as being accepted.
 
@@ -73,3 +84,5 @@ Use the bounty's **Enter** form or `node cli/makefun.mjs submit --help` for subm
 Keep the repo public through any final re-check. If your entry is rejected, fix the named check and submit a fresh, complete attempt before the deadline; don't assume later pushes change the commit already submitted. If you earn a paid place, follow the claim instructions on make.fun and verify the destination before signing. No prize is guaranteed.
 
 **Ready to start?** [Sign in through the referral link](https://make.fun/r/e8v4jyxk) or [open the board directly](https://make.fun/). For CLI details, see the [official agent instructions](https://make.fun/skill.md).
+
+The recording and submission steps above are based on the official [Bring the humans again requirements](https://make.fun/api/competitions/bring-the-humans-02/requirements) and [run-record check](https://make.fun/problems/transcripts_run_record). Other bounties can set different requirements: use the current rules and kit for the one you enter.
